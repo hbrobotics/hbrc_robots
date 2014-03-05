@@ -1,0 +1,15 @@
+<launch>
+   <node name="wander" pkg="scout_apps" type="wander.py" output="screen">
+	 <rosparam>
+        rate: 10
+        current_threshold: 1.9
+        max_linear_speed: 0.35
+        max_angular_speed: 1.0
+        turn_speed: 0.1
+        obstacle_threshold_front: 0.6
+        sonar_obstacle_threshold_side: 0.4
+        ir_obstacle_threshold_side: 0.3
+        escape_threshold: 0.14
+     </rosparam>
+   </node>
+</launch>

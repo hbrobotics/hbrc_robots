@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<robot name="scout">
+
+  <!-- Include the base definition -->
+  <include filename="$(find scout_description)/urdf/base.urdf.xacro" />
+
+  <!-- Include materials (colors and meshes) -->
+  <include filename="$(find scout_description)/urdf/materials.urdf.xacro" />
+
+  <!-- Add the base to the model -->
+  <robot_base name="base" color="Orange" />
+
+</robot>

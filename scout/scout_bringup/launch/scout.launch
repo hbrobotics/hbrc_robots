@@ -1,0 +1,18 @@
+<launch>
+  <!-- Load the URDF/Xacro model of our robot -->
+  <arg name="urdf_file" default="$(find xacro)/xacro.py '$(find scout_description)/urdf/scout.urdf.xacro'" />
+   
+  <param name="robot_description" command="$(arg urdf_file)" />
+  
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher">
+     <param name="publish_frequency" type="double" value="20.0" />
+  </node>
+  
+  <node name="arduino" pkg="ros_arduino_python" type="arduino_node.py" output="screen">
+     <rosparam command="delete" param="/arduino" />
+     <rosparam file="$(find scout_bringup)/config/arduino_params.yaml" command="load" />
+  </node>
+  
+  <node pkg="scout_bringup" name="fake_wheel_pub" type="fake_wheel_pub.py"/>
+
+</launch>
